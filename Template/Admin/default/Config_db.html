@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>数据库设置</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidator.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidatorRegex.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){
+      window.top.art.dialog({content:msg,lock:true,width:250,height:100,ok:function(){$(obj).focus();}});
+    }});
+   $("#db_host").formValidator({onshow:"如果网站系统与数据库服务器相同，请使用 localhost",onfocus:"数据库所使用的IP地址 本机请填写 localhost"}).regexValidator({regexp:"ip4_local",datatype: "enum",onerror:"服务器地址错误"});
+   $("#db_name").formValidator({onshow:"请输入本系统所使用的数据库",onfocus:"请输入本系统所使用的数据库"}).regexValidator({regexp:"username",datatype: "enum",onerror:"数据库名称错误"});
+   $("#db_user").formValidator({onshow:"请输入数据库用户名",onfocus:"请输入数据库用户名"}).regexValidator({regexp:"username",datatype: "enum",onerror:"数据库用户名错误"});
+   $("#db_pwd").formValidator({empty:true,onshow:"请输入数据库密码",onfocus:"请输入数据库密码"}).inputValidator({max:250,onerror:"数据库密码不能超过250个字符,请确认"});
+   $("#db_port").formValidator({onshow:"请输入数据库端口号",onfocus:"MYSQL数据库所使用的端口号 默认3306"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"端口号应为正数"});
+   $("#db_prefix").formValidator({onshow:"请输入数据库系统表前缀",onfocus:"请输入数据库系统表前缀"}).regexValidator({regexp:"username",datatype: "enum",onerror:"数据库系统表前缀错误"});
+  });
+</script>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<form action="?s=Admin/Config/updatedb" method="post" id="myform">
+ <tr  class="table_title">
+  <td colspan="2">数据库参数设置</td>
+</tr>                   
+<tr class="ji">
+  <td class="left">服务器IP</td>
+  <td><input type="text" name="con[db_host]" id="db_host" size="35" maxlength="50" value="{$con.db_host}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">数据库名称</td>
+  <td><input type="text" name="con[db_name]" id="db_name" size="35" maxlength="50" value="{$con.db_name}">
+  </td>
+</tr>
+<tr class="ji">
+  <td class="left">数据库用户名</td>
+  <td><input type="text" name="con[db_user]" id="db_user" size="35" maxlength="50" value="{$con.db_user}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">数据库密码</td>
+  <td><input type="text" name="con[db_pwd]" id="db_pwd" size="35" maxlength="50" value="{$con.db_pwd}">
+  </td>
+</tr>
+<tr class="ji">
+  <td class="left">数据库端口</td>
+  <td><input type="text" name="con[db_port]" id="db_port" size="35" maxlength="50" value="{$con.db_port}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">系统表前缀</td>
+  <td><input type="text" name="con[db_prefix]" id="db_prefix" size="35" maxlength="50" value="{$con.db_prefix}">
+  </td>
+</tr>                                       
+<tr class="ji">
+  <td colspan="2">
+    <input class="bginput" type="button" name="dosubmit" value="提交" onClick="submit_confirm('myform', '请仔细检查后再提交，不正确的参数都将可能导致网站不能正常运行！', 250,100)">
+    <input class="bginput" type="reset" name="Input" value="重置" >
+  </td>
+</tr>
+</form>
+</table>
+<include file="Index:footer" />
+</body>
+</html>

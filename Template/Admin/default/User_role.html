@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>后台角色管理-{$Think.config.cms_name}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+	<style>td{ height:22px; line-height:22px}</style>
+</head>
+<body>
+	<form action="/index.php?s=/Admin/User/role_sort" method="post" name="form">
+	<table width="98%" border="0" cellpadding="5" cellspacing="1" class="table">
+		<tr>
+			<td colspan="6" class="table_title">
+				<span class="fl">后台角色管理</span>
+				<span class="fr">
+					<a href="{:U('/Admin/User/role_add')}">添加角色</a>
+				</span>
+			</td>
+			<tr class="list_head ct">
+				<td width="70">排序权重</td>
+				<td width="70">ID</td>
+				<td width="350">角色名称</td>
+				<td >角色描述</td>
+				<td width="70">状态</td>
+				<td width="200">管理操作</td>
+			</tr>
+	    <volist name="list" id="vo">
+			<tr class='<eq name="mod" value="1">tr<else/>ji</eq>'>
+				<td align='center'>
+					<input type='text' value='{$vo.sort}' size='3' name='sort[{$vo.id}]'></td>
+				<td align='center'>{$vo.id}</td>
+				<td >{$vo.name}</td>
+				<td >{$vo.remark}</td>
+				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
+				</td>
+				<td align='center'>
+					<a href="javascript:setting_access({$vo.id}, '{$vo.name}')">权限设置</a>
+					| <a href="{:U('/Admin/User/role_edit/',array('id'=>$vo['id']))}">修改</a>
+					| <a href="javascript:void(0)" onclick="return confirmurl('{:U('/Admin/User/role_del/',array('id'=>$vo['id']))}','确定删除该角色吗?')">删除</a>
+				</td>
+			</tr>
+	    </volist>
+		<tr class="tr">
+          <td colspan="6" valign="middle">
+            <input type="submit" value="排序" class="bginput" />
+          </td>
+        </tr>
+		</table>
+	</form>
+		<script>var version='{$Think.config.cms_var}';</script>
+		<include file="Index:footer" />
+</body>
+<script type="text/javascript">
+//权限设置
+function setting_access(id, name) {
+	window.top.art.dialog.open('{:U('/Admin/User/access/')}'+'&roleid='+id,{title: name+'权限设置', width: 600, height: 500});
+}
+</script>
+</html>

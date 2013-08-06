@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$tpltitle}后台用户</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidator.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){
+			window.top.art.dialog({content:msg,lock:true,width:250,height:100,ok:function(){$(obj).focus();}});
+		}});
+		$("#username").formValidator({onshow:"请输入用户名",onfocus:"用户名至少3个字符,最多50个字符",oncorrect:"输入正确"}).inputValidator({min:3,empty:{leftempty:false,rightempty:false,emptyerror:"两边不能有空符号"},onerror:"你输入的用户名非法,请确认"})
+		    .ajaxValidator({
+			datatype : "json",
+			async : true,
+			type: "GET",
+			url : "{:U('/Admin/User/check_username',array('userid'=>$info['id']))}",
+			success : function(data){
+	            if( data == "0" ){
+	            	return true;
+	            }else{
+	            	return false;
+	            }
+			},
+			error: function(){
+				window.top.art.dialog({content:"服务器没有返回数据，可能服务器忙，请重试",lock:true,width:250,height:100,ok:function(){}});
+			},
+			onerror : "该用户名已存在，请更换",
+			onwait : "用户名校验中..."
+		})<gt name="info.id" value="0">.defaultPassed()</gt>;
+
+
+		$("#password").formValidator({<gt name="info.id" value="0">empty:true,</gt>onshow:"请输入密码",onfocus:"至少6个长度",oncorrect:"密码合法"}).inputValidator({min:6,empty:{leftempty:false,rightempty:false,emptyerror:"密码两边不能有空符号"},onerror:"密码不能为空,请确认"});
+		$("#repassword").formValidator({<gt name="info.id" value="0">empty:true,</gt>onshow:"输再次输入密码",onfocus:"至少6个长度",oncorrect:"密码一致"}).inputValidator({min:6,empty:{leftempty:false,rightempty:false,emptyerror:"重复密码两边不能有空符号"},onerror:"重复密码不能为空,请确认"}).compareValidator({desid:"password",operateor:"=",onerror:"两次密码不一致,请确认"});
+		$("#remark").formValidator({empty:true,onshow:"请输入你的描述"}).inputValidator({max:250,onerror:"描述不能超过250个字符,请确认"});
+
+	});
+</script>
+</head>
+<body>
+		<gt name="info.id" value="0">
+			<form action="{:U('/Admin/User/edit')}" method="post" name="form" id="myform">
+			<input type="hidden" name="id" value="{$info.id}">
+		<else />
+			<form action="{:U('/Admin/User/add')}" method="post" name="form" id="myform">
+		</gt>
+			<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+
+				<tr class="table_title">
+					<td colspan="4">{$tpltitle}后台用户</td>
+				</tr>
+
+				<tr class="tr rt">
+					<td width="100">用户名称：</td>
+					<td colspan="3" class="lt">
+						<input type="text" name="username" id="username" style="width:200px" value="{$info.username}" <eq name="info.username" value="$Think.config.SPECIAL_USER">readonly="readonly"</eq>>
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td width="100">密　　码：</td>
+					<td colspan="3" class="lt">
+						<input type="password" name="password" id="password" style="width:200px" value="">
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td width="100">确认密码：</td>
+					<td colspan="3" class="lt">
+						<input type="password" name="repassword" id="repassword" style="width:200px" value="">
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td width="100">用户角色：</td>
+					<td colspan="3" class="lt">
+						<select name="role">
+							<volist name="role" id="vo">
+								<option value="{$vo.id}" <eq name="vo.id" value="$info.role">selected=""</eq> >{$vo.name}</option>
+							</volist>
+						</select>
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td >用户状态：</td>
+					<td colspan="3" class="lt">
+						<input type="radio" class="radio" value="1" name="status" id="status1" <if condition="($info.status eq 1) OR ($info['status'] eq '') ">checked=""</if> >
+							启用
+							<input type="radio" class="radio" value="0" name="status" id="status2" <eq name="info.status" value="0">checked=""</eq> >
+							关闭
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td >备注说明：</td>
+					<td colspan="3" class="lt">
+						<input type="text" name="remark" id="remark" style="width:400px" value="{$info.remark}">
+					</td>
+				</tr>
+	<tr class="tr lt">
+		<td colspan="4">
+			<gt name="info.id" value="0">
+				<input class="bginput" type="submit" name="dosubmit" value="修 改" >
+				<else />
+				<input class="bginput" type="submit" name="dosubmit" value="添 加"></gt>
+			&nbsp;
+			<input class="bginput" type="button" onclick="javascript:history.back(-1);" value="返 回" ></td>
+	</tr>
+</table>
+</form>
+<include file="Index:footer" />
+</body>
+</html>

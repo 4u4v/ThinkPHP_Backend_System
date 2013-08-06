@@ -1,0 +1,263 @@
+﻿/* 全局css */
+body {
+	margin:0;
+	padding:0px 0px 0px 0px;
+	text-align:center;
+	background-color: #FFFFFF;
+	cursor:default;
+	font-size:12px;
+	cursor:default;
+	color:#313131;
+	font-family: "sim-sun", "Geneva", "Arial", "Helvetica", "sans-serif";
+}
+td, th {
+	cursor:default;
+	white-space:nowrap;
+}
+a {
+	color:#0066FF;
+	text-decoration:none;
+}
+a:hover, a:active {
+	text-decoration:underline;
+}
+img {
+	border:none
+}
+form, ul {
+	margin:0;
+	padding:0
+}
+ul li {
+	list-style:none
+}
+.lt {
+	text-align:left
+}
+.ct {
+	text-align:center
+}
+.rt {
+	text-align:right
+}
+.fl {
+	float:left;
+}
+.fr {
+	float:right;
+	margin-right:5px;
+}
+.fr a {
+	color:#0099cc;
+}
+.radio {
+	border: none;
+}
+.noborder {
+	border:none;
+	height:22px;
+}
+.checkbox {
+	height:20px;
+	border:none
+}
+.select {
+	font-size:12px;
+}
+.ji {
+	background-color: #fcfdfe;
+}
+.ou {
+	background-color: #ffffff;
+}
+.w100{
+	width:100px;
+	text-align:center
+}
+.w200{
+	width:200px;
+}
+sup{
+	color:#333; margin:0px 5px; font-weight:bold; font-size:13px
+}
+/* 表格 */
+.table {
+	margin-bottom:5px;
+	background: #C6DCF2;
+	font-size:12px;
+	text-align:left
+}
+.table td {
+	padding-left:10px;
+}
+.table tr .left{
+	width:180px;
+	text-align:right;
+	padding-right:10px;
+	color:#666;
+}
+.table .tr {
+	background: #fff;
+}
+.table .td {
+	padding-left:0px;
+}
+.table_title {
+	height:25px;
+	line-height:25px;
+	background: #F3F7FB;
+	font-weight:bold;
+	color:#0099cc;
+}
+.list_head td {
+	padding:0;
+	margin:0;
+	height:30px;
+	color:#0099cc;
+	font-size:12px;
+	font-weight:bold;
+	background:url(../images/admin/td_title_bg.gif);
+	vertical-align:middle;
+}
+.list_head img {
+	vertical-align:-3px;
+ 	*vertical-align:-5px;
+}
+/* tab切换 */
+.tabs_title {
+	height:30px;
+	line-height:30px;
+	background: url(../images/admin/tb-head-bg.gif) #F3F7FB;
+	font-weight:bold;
+}
+.tabs_title a {
+	width:80px;
+	height:30px;
+	line-height:30px;
+	border-right:1px solid #C6DCF2;
+	text-align:center;
+	background:#FFFFFF;
+	color:#0099cc;
+	display:block;
+	float:left;
+	background: url(../images/admin/tb-head-bg.gif) #f5fdff;
+}
+.tabs_title a:hover, .tabs_title .on {
+	color:#666;
+	text-decoration:none;
+	background: #FFFFFF none;
+}
+.tabs_title .no {
+	border:none;
+	background:none;
+}
+/*数据录入与编辑*/
+.boxadd {
+	width:98%;
+	margin:8px 0px;
+	border:1px solid #C6DCF2;
+	margin-left:5px;
+	border-bottom:none
+}
+.boxadd ul {
+	border-bottom:1px solid #C6DCF2;
+	clear:both;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	padding-bottom:5px;	
+}
+.boxadd ul li{
+	display:block
+}
+.boxadd .l {
+	float:left;
+	width:420px;
+	padding-left:30px;
+	padding-top:3px
+}
+.boxadd .r {
+	float:left;
+	padding-left:30px;
+	_padding-top:5px
+}
+.boxadd .select {
+	width:80px;
+}
+.boxadd .input {
+	width:350px;
+	padding-top:2px;
+}
+/* 分页 */
+.pages {
+	text-align:center;
+	padding-top:10px
+}
+.pages a, .pages em, .pages a:visited {
+	padding:3px 2px;
+	margin:2px;
+	font:normal 12px Arial, Helvetica, sans-serif;
+	color:#444;
+	text-decoration:none;
+}
+.pages a.on, .pages a:hover {
+	text-decoration: underline;
+	color: #0066FF;
+}
+.pages span {
+	padding:3px 2px;
+	margin:2px;
+	font:normal 12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: #0066FF
+}
+.pages .pageinput {
+	height:16px;
+	width:30px;
+	text-align:center;
+	font:normal 12px/14px Verdana;
+}
+.pages .pagebg {
+	margin-left:5px;
+	cursor:pointer;
+	padding-left:3px;
+	padding-right:2px;
+	border:1px solid #bdbcbd;
+	background:#FFF url(../images/admin/inputbut_bg.gif) left center repeat-x;
+	height:22px;
+}
+/* input */
+input {
+	background:#fff url(../images/admin/input.gif) top repeat-x;
+	border:1px solid #d0d0d0;
+	height:18px;
+	line-height:18px;
+	padding-left:5px;
+	vertical-align:middle;
+	font-size:12px;
+}
+textarea {
+	border:1px solid #bbb;
+	color:#666;
+	vertical-align:middle;
+}
+.radio{border:none;background:none;}
+.bginput {
+	cursor:pointer;
+	padding-left:3px;
+	padding-right:2px;
+	padding-top:2px;
+	border:1px solid #bdbcbd;
+	background:#FFF url(../images/admin/inputbut_bg.gif) left center repeat-x;
+	font-size:12px;
+	height:24px;
+}
+
+/*formValidator表单验证*/
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(../images/admin/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
