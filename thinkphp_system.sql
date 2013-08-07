@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `thinkphp_system`
+-- 数据库: `tpcms`
 --
 
 -- --------------------------------------------------------
@@ -115,6 +115,30 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 (1, 55, 54, 3, NULL),
 (1, 56, 54, 3, NULL),
 (1, 57, 54, 3, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tp_news`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_news` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `create_time` int(11) unsigned NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 导出表中的数据 `tp_news`
+--
+
+INSERT INTO `tp_news` (`id`, `title`, `content`, `create_time`, `status`) VALUES
+(1, '测试标题1', '<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容1。</p>\r\n<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容。这里是测试内容。这里是测试内容1。</p>', 1374477140, 1),
+(2, '测试标题2', '测试内容。。。测试内容。。。测试内容。。。', 1374561995, 0),
+(3, '测试标题3', 'ThinkPHP示例之：表单处理', 1374565709, 0);
 
 -- --------------------------------------------------------
 

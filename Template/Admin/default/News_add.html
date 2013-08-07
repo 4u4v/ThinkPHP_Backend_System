@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$tpltitle}后台新闻</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidator.js"></script>
+
+</head>
+<body>
+
+			<form action="{:U('/Admin/News/add')}" method="post" name="form" id="myform">
+
+			<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+
+				<tr class="table_title">
+					<td colspan="4">添加后台新闻</td>
+				</tr>
+
+				<tr class="tr rt">
+					<td width="100">新闻标题：</td>
+					<td colspan="3" class="lt">
+					<input type="text" name="title" style="width:222px" >
+					</td>
+				</tr>
+				<tr class="tr rt">
+					<td >新闻内容：</td>
+					<td colspan="3" class="lt">
+					<textarea name="content" rows="5" cols="25"></textarea>
+					</td>
+				</tr>
+
+	<tr class="tr lt">
+	<td colspan="4">
+	<input class="bginput" type="submit" name="dosubmit" value="添 加">&nbsp;
+	<input class="bginput" type="reset" value="清 空">&nbsp;
+	<input class="bginput" type="button" onclick="javascript:history.back(-1);" value="返 回" ></td>
+	</tr>
+</table>
+</form>
+<include file="Index:footer" />
+</body>
+</html>

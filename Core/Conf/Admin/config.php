@@ -32,7 +32,7 @@ return array (
   'SPECIAL_USER' => 'admin',
   'cms_name' => '后台管理系统',
   'cms_url' => 'http://www.4u4v.net',
-  'cms_var' => '1.0.0',
+  'cms_var' => '1.1.0',
   'end_year' => '2013',
   'cms_admin' => 'index.php',
 );
