@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>{$title}</title>
+
+</head>
+<body>
+<p><br /></p>
+<table>
+<tr>
+    <td>Id : </td>
+    <td>{$data.id}</td>
+</tr>
+<tr>
+    <td>标题：</td>
+    <td>{$data.title}</td>
+</tr>
+<tr>
+    <td>内容：</td>
+    <td>{$data.content}</td>
+</tr>
+<tr>
+    <td>发布时间：</td>
+    <td>{:get_color_date('Y-m-d H:i:s', $data['create_time'])}</td>
+</tr>
+<tr>
+    <td>点击数：</td>
+    <td>{$data.click}</td>
+</tr>
+</table>
+<p>{$Think.config.web_copyright}</p>
+</body>
+</html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 06 日 09:58
+-- 生成日期: 2013 年 08 月 07 日 17:49
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `tpcms`
+-- 数据库: `thinkphp_system`
 --
 
 -- --------------------------------------------------------
@@ -128,17 +128,22 @@ CREATE TABLE IF NOT EXISTS `tp_news` (
   `content` varchar(255) NOT NULL,
   `create_time` int(11) unsigned NOT NULL,
   `status` tinyint(1) unsigned NOT NULL,
+  `click` int(16) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 导出表中的数据 `tp_news`
 --
 
-INSERT INTO `tp_news` (`id`, `title`, `content`, `create_time`, `status`) VALUES
-(1, '测试标题1', '<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容1。</p>\r\n<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容。这里是测试内容。这里是测试内容1。</p>', 1374477140, 1),
-(2, '测试标题2', '测试内容。。。测试内容。。。测试内容。。。', 1374561995, 0),
-(3, '测试标题3', 'ThinkPHP示例之：表单处理', 1374565709, 0);
+INSERT INTO `tp_news` (`id`, `title`, `content`, `create_time`, `status`, `click`) VALUES
+(1, '测试标题1', '<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容1。</p>\r\n<p>这里是测试内容1。这里是测试内容。这里是测试内容。这里是测试内容。</p>', 1374477140, 1, 0),
+(5, '新闻标题', '这是<a href="http://shuimu.js.cn">新闻内容</a>\r\n支持HTML哦！', 0, 0, 5),
+(2, '测试标题2', '测试内容。。。测试内容。。。测试内容。。。', 1374561995, 0, 2),
+(3, '测试标题3', 'ThinkPHP示例之3：表单处理', 1374565709, 0, 3),
+(7, '新闻标题7', '新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容', 1375855131, 1, 1),
+(6, '新闻标题6', '新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容', 1375855080, 1, 6),
+(8, '新闻标题8', '新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8<br />新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8', 1375855181, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -198,7 +203,7 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (32, 'role_del', '角色删除', 1, '', 21, 3, '', 0, 0),
 (33, 'role_sort', '角色排序', 1, '', 21, 3, '', 0, 0),
 (34, 'add', '后台用户添加', 1, '', 21, 3, '?s=/Admin/User/add', 9, 2),
-(35, 'edit', '后台某用户编辑', 1, '', 21, 3, '?s=/Admin/User/edit/id/3', 8, 2),
+(35, 'edit', '后台某用户编辑', 1, '', 21, 3, '?s=/Admin/User/edit/id/3', 8, 0),
 (36, 'del', '后台用户删除', 1, '', 21, 3, '', 7, 0),
 (37, 'access', '角色权限浏览', 1, '', 21, 3, '', 0, 0),
 (38, 'access_edit', '角色权限编辑', 1, '', 21, 3, '', 0, 0),
@@ -213,7 +218,7 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (53, 'NewsCenter', '新闻管理', 1, '', 1, 0, '', 0, 1),
 (54, 'News', '新闻管理模块', 1, '', 53, 2, '', 0, 2),
 (55, 'index', '后台新闻管理', 1, '', 54, 3, '?s=/Admin/News/index', 0, 2),
-(56, 'add', '后台新闻添加', 1, '', 54, 3, '', 0, 0),
+(56, 'add', '后台新闻添加', 1, '', 54, 3, '?s=/Admin/News/add', 0, 2),
 (57, 'edit', '后台新闻编辑', 1, '', 54, 3, '?s=/Admin/News/edit', 0, 0);
 
 -- --------------------------------------------------------
@@ -290,6 +295,6 @@ CREATE TABLE IF NOT EXISTS `tp_user` (
 --
 
 INSERT INTO `tp_user` (`id`, `username`, `password`, `role`, `status`, `remark`, `last_login_time`, `last_login_ip`, `last_location`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1375751484, '127.0.0.1', ''),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1375768944, '127.0.0.1', ''),
 (3, 'editor', '5aee9dbd2a188839105073571bee1b1f', 2, 1, '', 1356967653, '127.0.0.1', ''),
 (8, '水木', 'f4eddb1257c91ed28fd2fead367337e9', 1, 1, '拥有后台所有管理权限', 1375262553, '127.0.0.1', '新建用户');

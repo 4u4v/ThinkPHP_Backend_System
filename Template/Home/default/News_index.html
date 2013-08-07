@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<style>
+.news_list{
+text-align:left;
+}
+.table {
+margin: 0 auto;
+}
+</style>
+<title>{$title}</title>
+</head>
+<body>
+<p><br /></p>
+<div class="news_list">
+<table width="382" border="1" cellpadding="2" cellspacing="1" class="table">
+		<tr>
+			<td colspan="9" class="table_title">
+				<h3>新闻列表</h3>
+			</td>
+			<tr class="list_head ct">
+				<td width="20">ID</td>
+				<td width="150">新闻标题</td>
+				<td width="90">创建时间</td>
+				<td width="70">点击数</td>
+				<td width="50">状态</td>
+			</tr>
+	    <volist name="list" id="vo">
+			<tr class='<eq name="mod" value="1">tr<else/>ji</eq>'>
+				<td align='center'>{$vo.id}</td>
+				<td ><a href="__URL__/detail/id/{$vo.id}">{$vo.title}</a></td>
+				<td align='center'>{:get_color_date('Y-m-d H:i:s', $vo['create_time'])}</td>
+				<td align='center'>{$vo.click}</td>
+				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq>
+				</td>
+
+			</tr>
+	    </volist>
+		<tr class="tr">
+          <td colspan="9" class="pages">
+            {$page}
+          </td>
+        </tr>
+		</table>
+</div>
+<p><br /></p>
+<include file="Home:footer" />
+</body>
+</html>
