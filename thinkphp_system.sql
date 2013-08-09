@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 07 日 17:49
+-- 生成日期: 2013 年 08 月 09 日 18:16
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -115,6 +115,30 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 (1, 55, 54, 3, NULL),
 (1, 56, 54, 3, NULL),
 (1, 57, 54, 3, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tp_member`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_member` (
+  `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) CHARACTER SET utf8 NOT NULL,
+  `password` char(32) NOT NULL,
+  `email` varchar(64) CHARACTER SET utf8 NOT NULL,
+  `reg_time` int(11) unsigned NOT NULL,
+  `last_login_time` varchar(16) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- 导出表中的数据 `tp_member`
+--
+
+INSERT INTO `tp_member` (`id`, `username`, `password`, `email`, `reg_time`, `last_login_time`) VALUES
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 'admin@4u4v.net', 1375262553, '2013-08-09 18:11'),
+(2, '水木', 'f4eddb1257c91ed28fd2fead367337e9', '35991353@qq.com', 1376028842, '2013-08-09 17:33');
 
 -- --------------------------------------------------------
 
@@ -295,6 +319,6 @@ CREATE TABLE IF NOT EXISTS `tp_user` (
 --
 
 INSERT INTO `tp_user` (`id`, `username`, `password`, `role`, `status`, `remark`, `last_login_time`, `last_login_ip`, `last_location`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1375768944, '127.0.0.1', ''),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376043151, '127.0.0.1', ''),
 (3, 'editor', '5aee9dbd2a188839105073571bee1b1f', 2, 1, '', 1356967653, '127.0.0.1', ''),
 (8, '水木', 'f4eddb1257c91ed28fd2fead367337e9', 1, 1, '拥有后台所有管理权限', 1375262553, '127.0.0.1', '新建用户');
