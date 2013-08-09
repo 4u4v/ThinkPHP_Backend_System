@@ -2,20 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>{$title}</title>
+<title>验证码</title>
 <script language="JavaScript">
 function fleshVerify(){
     //重载验证码
     var time = new Date().getTime();
-        document.getElementById('verifyImg').src= '__URL__/verify/'+time;
+        document.getElementById('verifyImg').src= '!-APP-!/User/verify/'+time;
 }
 </script>
 </head>
 <body>
 <br /></p>
-{$content}
-<div style="height:30px; width:200px; margin:0 auto;">
-验证码：<img src='__URL__/verify/' id="verifyImg" title="点击刷新验证码"  onclick="fleshVerify()" />
+<div style="heigh:60px; width:300px; margin:0 auto;">
+验证码：<img src='!-APP-!/User/verify/' id="verifyImg" onclick="fleshVerify()" />
 </div>
 <p><br /></p>
 </body>
