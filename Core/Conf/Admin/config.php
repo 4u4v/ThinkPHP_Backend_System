@@ -30,9 +30,12 @@ return array (
   'RBAC_ACCESS_TABLE' => 'tp_access',   // 权限分配表
   'RBAC_NODE_TABLE' => 'tp_node',       // 节点表
   'SPECIAL_USER' => 'admin',
+  'TMPL_PARSE_STRING' =>  array( // 添加输出替换
+        '__UPLOAD__'  =>  __ROOT__.'/admin/uploads',
+    ),
   'cms_name' => '后台管理系统',
   'cms_url' => 'http://www.4u4v.net',
-  'cms_var' => '1.1.1',
+  'cms_var' => '1.2.1',
   'end_year' => '2013',
   'cms_admin' => 'index.php',
 );

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 09 日 18:16
+-- 生成日期: 2013 年 08 月 13 日 17:55
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -119,6 +119,34 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `tp_files`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_files` (
+  `id` int(16) NOT NULL AUTO_INCREMENT,
+  `original_name` varchar(32) NOT NULL,
+  `file_name` varchar(32) NOT NULL,
+  `file_size` int(10) NOT NULL,
+  `file_type` varchar(16) DEFAULT NULL,
+  `upload_time` varchar(27) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- 导出表中的数据 `tp_files`
+--
+
+INSERT INTO `tp_files` (`id`, `original_name`, `file_name`, `file_size`, `file_type`, `upload_time`) VALUES
+(1, '7logo.jpg', '1376381423.jpg', 3502, 'image/jpeg', '1376381423'),
+(2, 'login_member.jpg', '1376381667.jpg', 32845, 'image/jpeg', '1376381667'),
+(3, 'QQ图片20130606132717.jpg', '1376381707.jpg', 10274, 'image/jpeg', '1376381707'),
+(4, 'QQ截图20130613152849.jpg', '1376382061.jpg', 73484, 'image/jpeg', '1376382061'),
+(5, 'M.jpg', '1376382199.jpg', 113314, 'image/jpeg', '1376382199'),
+(6, 'SAP系统状态信息.jpg', '1376387602.jpg', 90951, 'image/jpeg', '1376387602');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `tp_member`
 --
 
@@ -137,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `tp_member` (
 --
 
 INSERT INTO `tp_member` (`id`, `username`, `password`, `email`, `reg_time`, `last_login_time`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 'admin@4u4v.net', 1375262553, '2013-08-09 18:11'),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 'admin@4u4v.net', 1375262553, '2013-08-13 08:54'),
 (2, '水木', 'f4eddb1257c91ed28fd2fead367337e9', '35991353@qq.com', 1376028842, '2013-08-09 17:33');
 
 -- --------------------------------------------------------
@@ -191,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `tp_node` (
   KEY `pid` (`pid`),
   KEY `status` (`status`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
 --
 -- 导出表中的数据 `tp_node`
@@ -243,7 +271,11 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (54, 'News', '新闻管理模块', 1, '', 53, 2, '', 0, 2),
 (55, 'index', '后台新闻管理', 1, '', 54, 3, '?s=/Admin/News/index', 0, 2),
 (56, 'add', '后台新闻添加', 1, '', 54, 3, '?s=/Admin/News/add', 0, 2),
-(57, 'edit', '后台新闻编辑', 1, '', 54, 3, '?s=/Admin/News/edit', 0, 0);
+(57, 'edit', '后台新闻编辑', 1, '', 54, 3, '?s=/Admin/News/edit', 0, 0),
+(58, 'FilesManage', '文件管理', 1, '', 1, 0, '', 0, 1),
+(59, 'Files', '文件管理模块', 1, '', 58, 2, '', 0, 2),
+(60, 'index', '图片文件列表', 1, '', 59, 3, '?s=/Admin/Files/index', 0, 2),
+(61, 'add', '上传图片文件', 1, '', 59, 3, '?s=/Admin/Files/add', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -319,6 +351,6 @@ CREATE TABLE IF NOT EXISTS `tp_user` (
 --
 
 INSERT INTO `tp_user` (`id`, `username`, `password`, `role`, `status`, `remark`, `last_login_time`, `last_login_ip`, `last_location`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376043151, '127.0.0.1', ''),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376355124, '127.0.0.1', ''),
 (3, 'editor', '5aee9dbd2a188839105073571bee1b1f', 2, 1, '', 1356967653, '127.0.0.1', ''),
 (8, '水木', 'f4eddb1257c91ed28fd2fead367337e9', 1, 1, '拥有后台所有管理权限', 1375262553, '127.0.0.1', '新建用户');

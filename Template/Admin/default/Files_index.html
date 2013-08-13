@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>图片文件列表-{$Think.config.cms_name}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+	<style>td{ height:22px; line-height:22px}</style>
+</head>
+<body>
+<p>{$info}<br />图片文件列表：</p>
+<volist name="data" id="data">
+原文件名：{$data.original_name} | <a href="__UPLOAD__/{$data.file_name}" />{$data.file_name}</a> | 文件大小：{$data['file_size']/1024|number_format=###, 2, '.', ''}KB | 上传时间：{$data.upload_time|date="Y-m-d H:i:s",###}  <br />
+</volist>
+<p><br /></p>
+<script>var version='{$Think.config.cms_var}';</script>
+<include file="Index:footer" />
+</body>
+</html>
