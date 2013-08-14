@@ -136,7 +136,6 @@
 		<a class="uppic-btn save-pic" href="javascript:;">保存</a>
 		<a class="uppic-btn reupload-img" href="javascript:$('#user-pic').uploadify('cancel','*');">重新上传</a>
 	</div>
-	<input type="hidden" name="picName" id="picName" />
 </form>
 <!-- /修改头像 -->
 
@@ -183,7 +182,6 @@
 				//两个预览窗口赋值
 				$('.crop').children('img').attr('src',data['data']+'?random='+Math.random());
 				//隐藏表单赋值
-				$('#picName').val(data['data']);
 				$('#img_src').val(data['data']);
 				//绑定需要裁剪的图片
 				var img = $('<img />');

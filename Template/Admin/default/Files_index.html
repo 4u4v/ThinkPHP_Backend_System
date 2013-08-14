@@ -9,11 +9,43 @@
 	<style>td{ height:22px; line-height:22px}</style>
 </head>
 <body>
-<p>{$info}<br />图片文件列表：</p>
-<volist name="data" id="data">
-原文件名：{$data.original_name} | <a href="__UPLOAD__/{$data.file_name}" />{$data.file_name}</a> | 文件大小：{$data['file_size']/1024|number_format=###, 2, '.', ''}KB | 上传时间：{$data.upload_time|date="Y-m-d H:i:s",###}  <br />
-</volist>
-<p><br /></p>
+	<table width="98%" border="0" cellpadding="9" cellspacing="1" class="table">
+		<tr>
+			<td colspan="9" class="table_title">
+				<span class="fl">图片文件管理</span>
+				<span class="fr">
+					<a href="{:U('/Admin/Files/add')}">上传文件</a>
+				</span>
+			</td>
+			<tr class="list_head ct">
+				<td width="70">ID</td>
+				<td width="350">原文件名</td>
+				<td width="200">图片文件</td>
+				<td width="100">文件大小</td>
+				<td width="150">上传时间</td>
+				<td width="170">文件类型</td>
+				<td width="100">管理操作</td>
+			</tr>
+	    <volist name="data" id="data">
+			<tr class='<eq name="mod" value="1">tr<else/>ji</eq>'>
+				<td align='center'>{$data.id}</td>
+				<td >{$data.original_name}</td>
+				<td ><a href="__UPLOAD__/{$data.file_name}"  target="_blank">{$data.file_name}</a></td>
+				<td align='center'>{$data['file_size']/1024|number_format=###, 2, '.', ''}KB</td>
+				<td align='center'>{$data.upload_time|date="Y-m-d H:i:s",###}</td>
+				<td align='center'>{$data.file_type}</td>
+				<td align='center'>
+					<a href="__UPLOAD__/{$data.file_name}" >查看</a>
+					| <a href="javascript:void(0)" onclick="return confirmurl('{:U('/Admin/Files/del/',array('id'=>$data['id']))}','确定删除该记录吗?')">删除</a>
+				</td>
+			</tr>
+	    </volist>
+		<tr class="tr">
+          <td colspan="9" class="pages">
+            {$page}
+          </td>
+        </tr>
+		</table>
 <script>var version='{$Think.config.cms_var}';</script>
 <include file="Index:footer" />
 </body>

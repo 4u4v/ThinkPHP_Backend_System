@@ -11,7 +11,7 @@
 // +----------------------------------------------------------------------
 
 /**
- * 后台用户管理模块
+ * 文件图片管理模块
  * 
  */
 class FilesAction extends AdminAction {
@@ -21,7 +21,7 @@ class FilesAction extends AdminAction {
 
 /* ================图片文件列表================ */
     public function index(){
-		/*
+		
         import('ORG.Util.Page');// 导入分页类
         $map = array();
         $FilesDB = D('Files');
@@ -33,16 +33,14 @@ class FilesAction extends AdminAction {
         $show = $Page->show();// 分页显示输出
 
         // 设置分页显示（详见分页类Page.class.php）
-
-        //$list = $FilesDB->where($map)->order('id ASC')->page($nowPage,5)->select();
-        $list = $FilesDB->limit($Page->firstRow. ',' . $Page->listRows)->order('id desc')->select();
-        $this->assign('list',$list);// 赋值数据集
+        
+        $data = $FilesDB->limit($Page->firstRow. ',' . $Page->listRows)->order('id desc')->select();
+        $this->assign('data',$data);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
-		*/
-		$Files  =   M('Files');
-        $data   =   $Files->order('upload_time desc')->limit(10)->select();
-        $this->assign('data', $data);
-		//echo __ROOT__.'/Uploads';
+		
+		//$Files  =   M('Files');
+        //$data   =   $Files->order('upload_time desc')->limit(10)->select();
+        //$this->assign('data', $data);
         $this->display();
     }
 
@@ -51,7 +49,7 @@ class FilesAction extends AdminAction {
     import('ORG.Net.UploadFile');
     $upload = new UploadFile();// 实例化上传类
     $upload->maxSize  = 2048000;// 设置附件上传大小
-    $upload->allowExts  = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+    $upload->allowExts  = array('jpg','gif','png','jpeg', 'txt','doc','docx','xls','xlsx','ppt','pptx', 'pdf');// 设置附件上传类型
     $upload->savePath =  './admin/uploads/';// 设置附件上传目录
 	$upload->saveRule = 'time'; // 设置上传文件名,保持文件名不变
 

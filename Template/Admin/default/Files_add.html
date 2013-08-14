@@ -6,14 +6,21 @@
 	<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
 	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
-	<style>td{ height:22px; line-height:22px}</style>
+<style type="text/css">
+.upload_area {background: none repeat scroll 0 0 #FFFFCC; border: 1px solid #D4D4D4;padding: 15px 20px; margin:0 auto; width:500px}
+input,textarea {border:1px solid silver; padding:5px; width:350px; font-size:16px;font-family: "微软雅黑";}
+input{height:30px;}
+input.button,input.submit{width:68px; margin:2px 5px;letter-spacing:4px;font-family:"微软雅黑";font-size:16px; font-weight:bold;border:1px solid silver; text-align:center; background-color:#F0F0FF;cursor:pointer}
+</style>
 </head>
 <body>
 <P><BR /></P>
+<div class="upload_area">
 <form id="upload" method='post' action="__URL__/upload/" enctype="multipart/form-data">
 <input name="push" type="file" />
-<input type="submit" value="提交" >
+<input type="submit" value="提交" class="button" />
 </form>
+</div>
 <p><br /></p>
 <script>var version='{$Think.config.cms_var}';</script>
 <include file="Index:footer" />
