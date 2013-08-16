@@ -100,6 +100,16 @@ class ConfigAction extends AdminAction{
 		$this->updateconfig($config);
 	}
 
+	//更新邮件服务器配置
+    public function updatemail(){
+		$con = $_POST["con"];
+		$con['SMTP_PORT'] = abs(intval($con['SMTP_PORT']));
+		$con['SMTP_TIME_OUT'] = abs(intval($con['SMTP_TIME_OUT']));
+		$con['SMTP_AUTH'] = abs(intval($con['SMTP_AUTH']));
+		$config = array('con'=>$con);
+		$this->updateconfig($config);
+	}
+
 	//更新数据库链接配置
     public function updatedb(){
 		$con = $_POST["con"];

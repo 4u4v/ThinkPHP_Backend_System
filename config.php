@@ -1,5 +1,5 @@
-<?php
-return array (
+<?php 
+ return array (
   'db_type' => 'mysql',
   'db_host' => 'localhost',
   'db_name' => 'thinkphp_system',
@@ -7,6 +7,14 @@ return array (
   'db_pwd' => '52mysql1314',
   'db_port' => 3306,
   'db_prefix' => 'tp_',
+  'SMTP_SERVER' => 'smtp.163.com',
+  'SMTP_PORT' => 25,
+  'SMTP_USER_EMAIL' => '4u4v@163.com',
+  'SMTP_USER' => '4u4v@163.com',
+  'SMTP_PWD' => '15083523531',
+  'SMTP_MAIL_TYPE' => 'HTML',
+  'SMTP_TIME_OUT' => 60,
+  'SMTP_AUTH' => 1,
   'web_name' => 'CMS网站后台管理系统',
   'web_url' => 'http://localhost/ThinkPHP_Backend_System/',
   'web_path' => '/',
@@ -17,5 +25,5 @@ return array (
   'web_admin_pagenum' => 20,
   'web_home_pagenum' => 15,
   'web_adsensepath' => 'Public/Banner',
-);
-?>
+); 
+ ?>

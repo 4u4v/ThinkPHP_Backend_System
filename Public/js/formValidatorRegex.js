@@ -16,6 +16,7 @@ var regexEnum =
 	email:"^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$", //邮件
 	color:"^[a-fA-F0-9]{6}$",				//颜色
 	url:"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$",	//url
+	domain:"^[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$",	//domain
 	chinese:"^[\\u4E00-\\u9FA5\\uF900-\\uFA2D]+$",					//仅中文
 	ascii:"^[\\x00-\\xFF]+$",				//仅ACSII字符
 	zipcode:"^\\d{6}$",						//邮编

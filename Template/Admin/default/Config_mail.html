@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>邮件服务设置</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidator.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/formValidatorRegex.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){
+      window.top.art.dialog({content:msg,lock:true,width:250,height:100,ok:function(){$(obj).focus();}});
+    }});
+   $("#SMTP_SERVER").formValidator({onshow:"SMTP邮件服务器地址，示例：smtp.163.com",onfocus:"SMTP邮件服务器地址，不含http://"}).regexValidator({regexp:"domain",datatype: "enum",onerror:"服务器地址错误"});
+   $("#SMTP_USER_EMAIL").formValidator({onshow:"请输入SMTP邮件服务器发件人邮箱",onfocus:"请输入SMTP邮件服务器发件人邮箱"}).regexValidator({regexp:"email",datatype: "enum",onerror:"邮箱格式错误"});
+   $("#SMTP_USER").formValidator({onshow:"请输入SMTP服务器账户邮箱",onfocus:"请输入SMTP服务器账户邮箱"}).regexValidator({regexp:"email",datatype: "enum",onerror:"SMTP服务器账户邮箱错误"});
+   $("#SMTP_PWD").formValidator({empty:true,onshow:"请输入SMTP发件人密码",onfocus:"请输入SMTP发件人密码"}).inputValidator({max:250,onerror:"数据库密码不能超过250个字符,请确认"});
+   $("#SMTP_PORT").formValidator({onshow:"请输入邮件服务器端口号，一般为25",onfocus:"邮件服务器端口号，一般为25"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"端口号应为正数"});
+   $("#SMTP_MAIL_TYPE").formValidator({onshow:"请输入发送邮件类型:HTML,TXT(注意都是大写)",onfocus:"请输入发送邮件类型:HTML,TXT(注意都是大写)"}).regexValidator({regexp:"username",datatype: "enum",onerror:"邮件内容类型填写错误"});
+   $("#SMTP_TIME_OUT").formValidator({onshow:"请输入邮件发送超时时间，单位为秒",onfocus:"请输入邮件发送超时时间，单位为秒"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"时间秒数应为正数"});
+   $("#SMTP_AUTH").formValidator({onshow:"邮箱验证(一般都要设为1开启)",onfocus:"邮箱验证(一般都要设为1开启)"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"邮箱验证选择错误"});
+  });
+</script>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<form action="?s=Admin/Config/updatemail" method="post" id="myform">
+ <tr  class="table_title">
+  <td colspan="2">邮件服务参数设置</td>
+</tr>
+<tr class="ji">
+  <td class="left">邮件服务器</td>
+  <td><input type="text" name="con[SMTP_SERVER]" id="SMTP_SERVER" size="35" maxlength="50" value="{$con.SMTP_SERVER}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">SMTP发件人邮箱</td>
+  <td><input type="text" name="con[SMTP_USER_EMAIL]" id="SMTP_USER_EMAIL" size="35" maxlength="50" value="{$con.SMTP_USER_EMAIL}">
+  </td>
+</tr>
+<tr class="ji">
+  <td class="left">SMTP服务器账户名</td>
+  <td><input type="text" name="con[SMTP_USER]" id="SMTP_USER" size="35" maxlength="50" value="{$con.SMTP_USER}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">SMTP帐号密码</td>
+  <td><input type="password" name="con[SMTP_PWD]" id="SMTP_PWD" size="35" maxlength="50" value="{$con.SMTP_PWD}">
+  </td>
+</tr>
+<tr class="ji">
+  <td class="left">服务器端口</td>
+  <td><input type="text" name="con[SMTP_PORT]" id="SMTP_PORT" size="35" maxlength="50" value="{$con.SMTP_PORT}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">邮件内容类型</td>
+  <td><input type="text" name="con[SMTP_MAIL_TYPE]" id="SMTP_MAIL_TYPE" size="35" maxlength="50" value="{$con.SMTP_MAIL_TYPE}">
+  </td>
+</tr>
+<tr class="ji">
+  <td class="left">发送超时时间</td>
+  <td><input type="text" name="con[SMTP_TIME_OUT]" id="SMTP_TIME_OUT" size="35" maxlength="50" value="{$con.SMTP_TIME_OUT}">
+  </td>
+</tr>
+<tr class="tr">
+  <td class="left">是否需邮箱验证</td>
+  <td><input type="text" name="con[SMTP_AUTH]" id="SMTP_AUTH" size="35" maxlength="50" value="{$con.SMTP_AUTH}">
+  </td>
+</tr>
+<tr class="ji">
+  <td colspan="2">
+    <input class="bginput" type="button" name="dosubmit" value="提交" onClick="submit_confirm('myform', '请仔细检查后再提交，不正确的参数都将可能导致网站不能正常运行！', 250,100)">
+    <input class="bginput" type="reset" name="Input" value="重置" >
+  </td>
+</tr>
+</form>
+</table>
+<include file="Index:footer" />
+</body>
+</html>

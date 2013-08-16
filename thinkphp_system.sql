@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 13 日 17:55
+-- 生成日期: 2013 年 08 月 16 日 16:35
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `tp_files` (
   `file_type` varchar(16) DEFAULT NULL,
   `upload_time` varchar(27) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- 导出表中的数据 `tp_files`
@@ -140,9 +140,12 @@ INSERT INTO `tp_files` (`id`, `original_name`, `file_name`, `file_size`, `file_t
 (1, '7logo.jpg', '1376381423.jpg', 3502, 'image/jpeg', '1376381423'),
 (2, 'login_member.jpg', '1376381667.jpg', 32845, 'image/jpeg', '1376381667'),
 (3, 'QQ图片20130606132717.jpg', '1376381707.jpg', 10274, 'image/jpeg', '1376381707'),
-(4, 'QQ截图20130613152849.jpg', '1376382061.jpg', 73484, 'image/jpeg', '1376382061'),
 (5, 'M.jpg', '1376382199.jpg', 113314, 'image/jpeg', '1376382199'),
-(6, 'SAP系统状态信息.jpg', '1376387602.jpg', 90951, 'image/jpeg', '1376387602');
+(6, 'SAP系统状态信息.jpg', '1376387602.jpg', 90951, 'image/jpeg', '1376387602'),
+(7, '01.jpg', '1376446447.jpg', 140782, 'image/jpeg', '1376446447'),
+(8, '文本文档01.txt', '1376446464.txt', 301, 'text/plain', '1376446464'),
+(9, '新建 Microsoft Office Word 文档.docx', '1376446476.docx', 11873, 'application/vnd.', '1376446476'),
+(10, 'qp_area.xlsx', '1376446488.xlsx', 9784, 'application/vnd.', '1376446488');
 
 -- --------------------------------------------------------
 
@@ -219,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `tp_node` (
   KEY `pid` (`pid`),
   KEY `status` (`status`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- 导出表中的数据 `tp_node`
@@ -275,7 +278,9 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (58, 'FilesManage', '文件管理', 1, '', 1, 0, '', 0, 1),
 (59, 'Files', '文件管理模块', 1, '', 58, 2, '', 0, 2),
 (60, 'index', '图片文件列表', 1, '', 59, 3, '?s=/Admin/Files/index', 0, 2),
-(61, 'add', '上传图片文件', 1, '', 59, 3, '?s=/Admin/Files/add', 0, 2);
+(61, 'add', '上传图片文件', 1, '', 59, 3, '?s=/Admin/Files/add', 0, 2),
+(62, 'confmail', '邮件服务配置', 1, '', 46, 0, '?s=/Admin/Config/conf/id/mail', 0, 2),
+(63, 'updatemail', '更新邮件服务器配置', 1, '', 46, 3, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -351,6 +356,6 @@ CREATE TABLE IF NOT EXISTS `tp_user` (
 --
 
 INSERT INTO `tp_user` (`id`, `username`, `password`, `role`, `status`, `remark`, `last_login_time`, `last_login_ip`, `last_location`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376355124, '127.0.0.1', ''),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376446417, '127.0.0.1', ''),
 (3, 'editor', '5aee9dbd2a188839105073571bee1b1f', 2, 1, '', 1356967653, '127.0.0.1', ''),
 (8, '水木', 'f4eddb1257c91ed28fd2fead367337e9', 1, 1, '拥有后台所有管理权限', 1375262553, '127.0.0.1', '新建用户');
