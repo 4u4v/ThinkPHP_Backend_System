@@ -35,7 +35,7 @@ return array (
     ),
   'cms_name' => '后台管理系统',
   'cms_url' => 'http://www.4u4v.net',
-  'cms_var' => '1.2.3',
+  'cms_var' => '1.3.3',
   'end_year' => '2013',
   'cms_admin' => 'index.php',
 );

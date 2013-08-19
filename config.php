@@ -25,5 +25,6 @@
   'web_admin_pagenum' => 20,
   'web_home_pagenum' => 15,
   'web_adsensepath' => 'Public/Banner',
+  'DB_BACKUP' => 'admin/backup',
 ); 
  ?>

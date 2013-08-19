@@ -20,7 +20,7 @@
    $("#web_admin_pagenum").formValidator({onshow:"后台数据管理的每页默认显示条数",onfocus:"后台数据管理的每页默认显示条数"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"应为正数"});
    $("#web_home_pagenum").formValidator({onshow:"前台网站翻页信息左右显示的最大条数",onfocus:"前台网站翻页信息左右显示的最大条数"}).regexValidator({regexp:"num1",datatype: "enum",onerror:"应为正数"});
    $("#web_adsensepath").formValidator({onshow:"广告JS文件保存路径(区分大小写,相对于安装目录)",onfocus:"广告JS文件保存路径(区分大小写,相对于安装目录)"}).regexValidator({regexp:'^[^\/][0-9a-zA-Z\/]+$',onerror:"目录路径格式错误，必须是子目录，不能以 / 开头"});
-
+   $("#DB_BACKUP").formValidator({onshow:"数据库备份文件保存路径(区分大小写,相对于安装目录)",onfocus:"数据库备份文件保存路径(区分大小写,相对于安装目录)"}).regexValidator({regexp:'^[^\/][0-9a-zA-Z\/]+$',onerror:"目录路径格式错误，必须是子目录，不能以 / 开头"});
   });
 </script>
 </head>
@@ -42,27 +42,27 @@
   <td class="left">安装路径</td>
   <td><input type="text" name="con[web_path]" id="web_path" size="35" maxlength="50" value="{$con.web_path}" >
   </td>
-</tr> 
+</tr>
  <tr class="tr">
   <td class="left">ICP备案信息</td>
   <td><input type="text" name="con[web_icp]" id="web_icp" size="35" value="{$con.web_icp}">
   </td>
-</tr>        
+</tr>
 <tr class="ji">
   <td class="left">版权信息</td>
   <td title="设置本网站相关版权信息">
     <textarea name="con[web_copyright]" id="web_copyright" style="width:500px;height:50px">{$con.web_copyright}</textarea> <br>
   </td>
-</tr> 
+</tr>
  <tr class="tr">
   <td class="left">第三方统计代码</td>
   <td>
     <textarea name="con[web_tongji]" id="web_tongji" style="width:500px; height:50px">{$con.web_tongji}</textarea> <br>
   </td>
-</tr> 
+</tr>
 <tr class="ji">
   <td class="left">模板主题方案</td>
-  <td><select name="con_home[default_theme]"><volist name="temp" id="vo"><option value="{$vo.filename}" <eq name="vo.filename" value="$con_home['default_theme']">selected</eq>>{$vo.filename}</option></volist></select> 
+  <td><select name="con_home[default_theme]"><volist name="temp" id="vo"><option value="{$vo.filename}" <eq name="vo.filename" value="$con_home['default_theme']">selected</eq>>{$vo.filename}</option></volist></select>
   </td>
 </tr>
 <tr class="table_title"><td colspan="2">个性参数设置</td></tr>
@@ -81,7 +81,13 @@
 <td>
 <input type="text" style="text-align:center" name="con[web_adsensepath]" id="web_adsensepath" value="{$con.web_adsensepath}" maxlength="30" size="20" >
 </td>
-</tr>    
+</tr>
+<tr class="ji">
+<td class="left">数据库备份目录</td>
+<td>
+<input type="text" style="text-align:center" name="con[DB_BACKUP]" id="DB_BACKUP" value="{$con.DB_BACKUP}" maxlength="30" size="20" >
+</td>
+</tr>
 <tr class="ji">
   <td colspan="2">
     <input class="bginput" type="submit" name="dosubmit" value="提交">

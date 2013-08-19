@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>数据表信息-{$Think.config.cms_name}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+	<style>td{ height:22px; line-height:22px}</style>
+</head>
+<body>
+	<table width="98%" border="0" cellpadding="9" cellspacing="1" class="table">
+		<tr>
+			<td colspan="9" class="table_title">
+				<span class="fl">各数据表信息</span>
+				<span class="fr">
+				<a href="__URL__/backall">备份全部数据表</a>
+				</span>
+			</td>
+			<tr class="list_head ct">
+				<td width="70">ID</td>
+				<td width="350">表名</td>
+				<td width="100">记录数</td>
+				<td width="150">数据长度</td>
+				<td width="170">更新时间</td>
+				<td width="300">管理操作</td>
+			</tr>
+	    <volist name="list" id="table" empty="暂时没有数据" >
+			<tr class='<eq name="mod" value="1">tr<else/>ji</eq>'>
+				<td align='center'>{$key}</td>
+				<td >{$table.Name}</td>
+				<td align='center'>{$table.Rows}</td>
+				<td align='center'>{$table.Data_length}</td>
+				<td align='center'>{$table.Update_time}</td>
+				<td align='center'>
+				<a href="__URL__/backtables/tab/{$table.Name}">备份该表</a>
+				</td>
+			</tr>
+	    </volist>
+		<tr class="tr">
+          <td colspan="9" class="pages">
+            {$page}
+          </td>
+        </tr>
+		</table>
+<script>var version='{$Think.config.cms_var}';</script>
+<include file="Index:footer" />
+</body>
+</html>

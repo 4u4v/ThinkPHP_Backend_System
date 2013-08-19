@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>备份文件管理-{$Think.config.cms_name}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel='stylesheet' type='text/css' href='__PUBLIC__/Admin/css/admin_style.css' />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/js/function.js"></script>
+	<style>td{ height:22px; line-height:22px}</style>
+</head>
+<body>
+	<table width="98%" border="0" cellpadding="9" cellspacing="1" class="table">
+		<tr>
+			<td colspan="9" class="table_title">
+				<span class="fl">备份文件列表</span>
+				<span class="fr">
+	<a href="__URL__/backall">备份全部数据表</a> | <a href="__URL__/tablist">按表备份数据表</a>
+				</span>
+			</td>
+			<tr class="list_head ct">
+				<td width="70">ID</td>
+				<td width="350">文件名</td>
+				<td width="100">文件大小</td>
+				<td width="150">时间</td>
+				<td width="170">文件类型</td>
+				<td width="300">管理操作</td>
+			</tr>
+	    <volist name="list" id="data" empty="暂时没有数据" >
+			<tr class='<eq name="mod" value="1">tr<else/>ji</eq>'>
+				<td align='center'>{$key}</td>
+				<td >{$data.name}</td>
+				<td align='center'>{$data.size}</td>
+				<td align='center'>{$data.time}</td>
+				<td align='center'>{$data.file_type}</td>
+				<td align='center'>
+				<a href="__URL__/recover/file/{$data.name}">还原该数据</a> | <a href="__URL__/deletebak/file/{$data.name}">删除该备份</a> | <a href="__URL__/downloadBak/file/{$data.name}">下载该备份</a><br />
+				</td>
+			</tr>
+	    </volist>
+		<tr class="tr">
+          <td colspan="9" class="pages">
+		  请及时删除<b>旧的</b>备份文件，以免占用过多的空间。<br />
+            {$page}
+          </td>
+        </tr>
+		</table>
+<script>var version='{$Think.config.cms_var}';</script>
+<include file="Index:footer" />
+</body>
+</html>

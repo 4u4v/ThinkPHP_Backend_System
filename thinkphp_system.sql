@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 16 日 16:35
+-- 生成日期: 2013 年 08 月 19 日 17:38
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `tp_node` (
   KEY `pid` (`pid`),
   KEY `status` (`status`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
 
 --
 -- 导出表中的数据 `tp_node`
@@ -280,7 +280,12 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (60, 'index', '图片文件列表', 1, '', 59, 3, '?s=/Admin/Files/index', 0, 2),
 (61, 'add', '上传图片文件', 1, '', 59, 3, '?s=/Admin/Files/add', 0, 2),
 (62, 'confmail', '邮件服务配置', 1, '', 46, 0, '?s=/Admin/Config/conf/id/mail', 0, 2),
-(63, 'updatemail', '更新邮件服务器配置', 1, '', 46, 3, '', 0, 0);
+(63, 'updatemail', '更新邮件服务器配置', 1, '', 46, 3, '', 0, 0),
+(64, 'BackupManage', '备份管理', 1, '', 1, 0, '', 0, 1),
+(65, 'Baksql', '备份管理模块', 1, '', 64, 2, '', 0, 2),
+(66, 'index', '备份文件管理', 1, '', 65, 3, '?s=/Admin/Baksql/index', 0, 2),
+(67, 'tablist', '数据表信息', 1, '各数据表信息', 65, 3, '?s=/Admin/Baksql/tablist', 0, 2),
+(68, 'backall', 'MySQL一键备份', 1, '备份整个数据库', 65, 3, '?s=/Admin/Baksql/backall', 0, 2);
 
 -- --------------------------------------------------------
 
