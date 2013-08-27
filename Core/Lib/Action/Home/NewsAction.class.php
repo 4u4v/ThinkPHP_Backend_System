@@ -16,6 +16,7 @@
  */
 
 class NewsAction extends HomeAction {
+
     public function index(){
 		$this->title = '新闻列表标题'; // 进行模板变量赋值
 
@@ -58,4 +59,46 @@ class NewsAction extends HomeAction {
         }
 		//$this->content = '<p>这里是<a href="http://shuimu.js.cn">新闻详细</a>内容</p>';
 	}
+
+
+   /**
+    +--------------------------------------------------------------
+    * 搜索操作，当用户提交表单后，调用此函数进行搜索，最后返回结果
+    +--------------------------------------------------------------
+    */
+    
+    //显示搜索表单
+    public function search()
+    {
+        $this->title = "搜索新闻内容";
+        $this->display();
+    }
+    
+    public function result()
+    {
+        $keyword = htmlspecialchars(trim($_REQUEST['keyword']));
+        //转换HTML字符并删掉两边空格
+        if (empty($keyword)) {
+            $this->error('请输入要搜索的关键词!');
+            //exit;
+        }
+        $Form                 = M('News');
+        //这里我做的一个模糊查询到标题或者包含关键字的内容
+        $map['title|content'] = array(
+            'like',
+            '%' . $keyword . '%'
+        );
+        //等价于 SELECT * FROM `think_form` WHERE ( (`title` LIKE '%测试%') OR (`content` LIKE '%测试%') )
+        // 把查询条件传入查询方法
+        $result               = $Form->where($map)->select();
+        //var_dump($result);//调试
+        if (!empty($result)) {
+            $this->list = $result;
+            $this->display();
+        } else {
+            $this->assign("no_result", "抱歉，搜索关键字“<font color=\"red\">" . $keyword . "</font>”结果不存在！");
+            $this->display();
+        }
+    }
+
 }

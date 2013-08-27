@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>{$title}</title>
+
+</head>
+<body>
+<br />
+<p>查询结果如下：</p>
+
+<volist name="list" id="vo">
+<h3>标题：{$vo.title}</h3> [时间：{$vo.create_time|date='Y-m-d H:i:s',###}]
+<p><b>内容：</b>{$vo.content|nl2br}</p> <hr />
+</volist>
+
+<p>{$no_result}</p>
+
+<include file="Home:footer" />
+</body>
+</html>
