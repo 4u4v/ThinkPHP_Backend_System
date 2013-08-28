@@ -24,7 +24,7 @@ class HomeAction extends CmsAction{
                 //检查认证识别号
                 if (!$_SESSION [C('USER_AUTH_KEY')]) {
                     //跳转到认证网关
-                    redirect(PHP_FILE.C('USER_AUTH_GATEWAY'), 5, '<p><br />跳转到登录页面中...</p>');
+                    redirect(PHP_FILE.C('USER_AUTH_GATEWAY'), 3, '<p><br />跳转到登录页面中...</p>');
                 }else{
                     echo "会员验证成功！";
                     //exit();

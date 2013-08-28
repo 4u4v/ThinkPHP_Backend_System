@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 08 月 19 日 17:38
+-- 生成日期: 2013 年 08 月 28 日 16:00
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -61,29 +61,29 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 (1, 33, 21, 3, NULL),
 (1, 32, 21, 3, NULL),
 (1, 31, 21, 3, NULL),
-(3, 16, 8, 3, NULL),
-(3, 8, 28, 2, NULL),
-(3, 28, 13, 0, NULL),
-(3, 13, 1, 0, NULL),
-(3, 6, 2, 3, NULL),
-(3, 7, 2, 3, NULL),
-(3, 4, 2, 3, NULL),
 (3, 5, 2, 3, NULL),
 (3, 3, 2, 3, NULL),
 (3, 2, 1, 2, NULL),
+(3, 38, 21, 3, NULL),
 (3, 37, 21, 3, NULL),
+(3, 33, 21, 3, NULL),
+(3, 32, 21, 3, NULL),
+(3, 31, 21, 3, NULL),
+(3, 23, 21, 3, NULL),
 (3, 22, 21, 3, NULL),
+(3, 40, 21, 3, NULL),
+(3, 36, 21, 3, NULL),
+(3, 35, 21, 3, NULL),
+(3, 34, 21, 3, NULL),
 (3, 30, 21, 3, NULL),
 (3, 21, 18, 2, NULL),
 (3, 18, 1, 0, NULL),
-(3, 51, 46, 0, NULL),
+(3, 62, 46, 0, NULL),
 (3, 49, 46, 0, NULL),
-(3, 15, 25, 0, NULL),
-(3, 45, 1, 0, NULL),
-(3, 46, 45, 2, NULL),
 (3, 47, 46, 3, NULL),
-(3, 20, 19, 3, NULL),
-(3, 19, 1, 2, NULL),
+(3, 46, 45, 2, NULL),
+(3, 45, 1, 0, NULL),
+(3, 15, 25, 0, NULL),
 (1, 23, 21, 3, NULL),
 (1, 22, 21, 3, NULL),
 (1, 36, 21, 3, NULL),
@@ -99,6 +99,10 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 (1, 25, 14, 0, NULL),
 (1, 14, 1, 0, NULL),
 (1, 1, 0, 1, NULL),
+(2, 61, 59, 3, NULL),
+(2, 60, 59, 3, NULL),
+(2, 59, 58, 2, NULL),
+(2, 58, 1, 0, NULL),
 (2, 57, 54, 3, NULL),
 (2, 56, 54, 3, NULL),
 (2, 55, 54, 3, NULL),
@@ -106,15 +110,26 @@ INSERT INTO `tp_access` (`role_id`, `node_id`, `pid`, `level`, `module`) VALUES
 (2, 53, 1, 0, NULL),
 (2, 20, 19, 3, NULL),
 (2, 19, 1, 2, NULL),
-(2, 15, 25, 0, NULL),
-(2, 25, 14, 0, NULL),
-(2, 14, 1, 0, NULL),
-(2, 1, 0, 1, NULL),
 (1, 53, 1, 0, NULL),
 (1, 54, 53, 2, NULL),
 (1, 55, 54, 3, NULL),
 (1, 56, 54, 3, NULL),
-(1, 57, 54, 3, NULL);
+(1, 57, 54, 3, NULL),
+(2, 6, 2, 3, NULL),
+(2, 7, 2, 3, NULL),
+(2, 4, 2, 3, NULL),
+(2, 5, 2, 3, NULL),
+(2, 3, 2, 3, NULL),
+(2, 2, 1, 2, NULL),
+(2, 15, 25, 0, NULL),
+(2, 25, 14, 0, NULL),
+(2, 14, 1, 0, NULL),
+(2, 1, 0, 1, NULL),
+(3, 4, 2, 3, NULL),
+(3, 7, 2, 3, NULL),
+(3, 6, 2, 3, NULL),
+(3, 19, 1, 2, NULL),
+(3, 20, 19, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -161,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `tp_member` (
   `reg_time` int(11) unsigned NOT NULL,
   `last_login_time` varchar(16) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- 导出表中的数据 `tp_member`
@@ -169,7 +184,9 @@ CREATE TABLE IF NOT EXISTS `tp_member` (
 
 INSERT INTO `tp_member` (`id`, `username`, `password`, `email`, `reg_time`, `last_login_time`) VALUES
 (1, 'admin', '7fef6171469e80d32c0559f88b377245', 'admin@4u4v.net', 1375262553, '2013-08-13 08:54'),
-(2, '水木', 'f4eddb1257c91ed28fd2fead367337e9', '35991353@qq.com', 1376028842, '2013-08-09 17:33');
+(2, '水木', 'f4eddb1257c91ed28fd2fead367337e9', '35991353@qq.com', 1376028842, '2013-08-09 17:33'),
+(3, '4u4v', 'f4eddb1257c91ed28fd2fead367337e9', 'admin@4u4v.com', 1377672534, '2013-08-28 14:56'),
+(4, 'high', 'f4eddb1257c91ed28fd2fead367337e9', 'high@qq.com', 1377672976, NULL);
 
 -- --------------------------------------------------------
 
@@ -196,7 +213,7 @@ INSERT INTO `tp_news` (`id`, `title`, `content`, `create_time`, `status`, `click
 (5, '新闻标题', '这是<a href="http://shuimu.js.cn">新闻内容</a>\r\n支持HTML哦！', 0, 0, 5),
 (2, '测试标题2', '测试内容。。。测试内容。。。测试内容。。。', 1374561995, 0, 2),
 (3, '测试标题3', 'ThinkPHP示例之3：表单处理', 1374565709, 0, 3),
-(7, '新闻标题7', '新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容', 1375855131, 1, 1),
+(7, '新闻标题7', '新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容', 1375855131, 1, 6),
 (6, '新闻标题6', '新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容', 1375855080, 1, 6),
 (8, '新闻标题8', '新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8<br />新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8新闻内容8', 1375855181, 1, 6);
 
@@ -249,7 +266,7 @@ INSERT INTO `tp_node` (`id`, `name`, `title`, `status`, `remark`, `pid`, `level`
 (19, 'cache', '缓存模块', 1, '', 1, 2, '', 0, 0),
 (20, 'delCore', '删除核心缓存', 1, '', 19, 3, '', 0, 0),
 (21, 'User', '后台用户管理', 1, '', 18, 2, '', 0, 2),
-(22, 'role', '角色管理', 1, '', 21, 3, '?s=/Admin/User/role', 4, 2),
+(22, 'role', '角色权限管理', 1, '', 21, 3, '?s=/Admin/User/role', 4, 2),
 (23, 'role_add', '角色添加', 1, '', 21, 3, '?s=/Admin/User/role_add', 0, 0),
 (25, 'my', '我的面板', 1, '', 14, 0, '', 0, 2),
 (30, 'index', '后台用户管理', 1, '', 21, 3, '?s=/Admin/User/index', 10, 2),
@@ -311,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `tp_role` (
 
 INSERT INTO `tp_role` (`id`, `name`, `pid`, `status`, `sort`, `remark`) VALUES
 (1, '超级管理员', 0, 1, 50, '超级管理员组'),
-(2, '编辑', 0, 1, 40, '编辑组'),
+(2, '网站编辑', 0, 1, 40, '编辑组'),
 (3, '站点监督员', 0, 1, 49, '站点监督员组');
 
 -- --------------------------------------------------------
@@ -361,6 +378,6 @@ CREATE TABLE IF NOT EXISTS `tp_user` (
 --
 
 INSERT INTO `tp_user` (`id`, `username`, `password`, `role`, `status`, `remark`, `last_login_time`, `last_login_ip`, `last_location`) VALUES
-(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376446417, '127.0.0.1', ''),
-(3, 'editor', '5aee9dbd2a188839105073571bee1b1f', 2, 1, '', 1356967653, '127.0.0.1', ''),
+(1, 'admin', '7fef6171469e80d32c0559f88b377245', 1, 1, '神级管理员,可无视系统权限.', 1376961366, '127.0.0.1', ''),
+(3, 'editor', 'f4eddb1257c91ed28fd2fead367337e9', 2, 1, '', 1376961309, '127.0.0.1', ''),
 (8, '水木', 'f4eddb1257c91ed28fd2fead367337e9', 1, 1, '拥有后台所有管理权限', 1375262553, '127.0.0.1', '新建用户');

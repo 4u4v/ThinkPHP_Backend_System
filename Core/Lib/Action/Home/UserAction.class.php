@@ -36,9 +36,24 @@ class UserAction extends HomeAction {
 		//$this->display();
     }
 
+    // 处理表单数据
+    public function insert() {
+        $Form = D("Member"); // 实例化Member模型
+        if ($Form->create()) {
+            if ($Form->add() == true) {
+                $this->success('注册成功了！', '__URL__/login');
+            } else {
+                $this->error('注册失败，请重试。');
+            }
+        } else {
+            // 字段验证错误
+            $this->error($Form->getError());
+        }
+    }
+
     public function login(){
 		$this->title = "会员登录"; // 进行模板变量赋值
-		$this->content = '<p>这里设计一个会员登录机制（主要是验证机制）</p>';
+		$this->content = '<p>这里设计一个会员登录机制（主要是表单验证机制）</p>';
 		$this->display();
 	}
 

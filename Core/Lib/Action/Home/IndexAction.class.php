@@ -24,8 +24,9 @@ class IndexAction extends HomeAction {
 	}
 
     public function ad(){
-		$this->title = "网站首页广告"; // 进行模板变量赋值
-		$this->content = '<p>这里是<a href="http://shuimu.js.cn">广告</a>内容</p>';
+		$this->title = "网站首页广告"; 
+		$ad1 = '<p>这里是<a href="http://shuimu.js.cn">广告</a>内容</p>';
+		$this->content = $ad1;
 		$this->display();
 	}
 
