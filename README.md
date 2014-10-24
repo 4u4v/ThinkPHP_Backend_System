@@ -11,8 +11,8 @@ ThinkPHP通用后台管理系统
 
     1 创建MYSQL数据库，导入thinkphp_system.sql
     2 根据你的数据库，配置config.php “db_host db_name db_user db_pwd db_port”
-    3 后台入口 http://domain/admin
-    4 后台帐号密码 admin admin888
+    3 后台入口 http://domain/admin 后台帐号密码 admin admin888
+    4 'web_url' => 'http://localhost/网站程序目录/',
     5 后台菜单设置方法请参考已有的那些菜单
 
 [ 目录结构 ]
