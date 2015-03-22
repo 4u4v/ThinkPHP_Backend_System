@@ -4,7 +4,7 @@
   'db_host' => 'localhost',
   'db_name' => 'thinkphp_system',
   'db_user' => 'root',
-  'db_pwd' => '52mysql1314',
+  'db_pwd' => 'root',
   'db_port' => 3306,
   'db_prefix' => 'tp_',
   'SMTP_SERVER' => 'smtp.163.com',
